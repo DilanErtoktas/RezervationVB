@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<title>VBCheck-in</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%">
+        
+        <a href="/Masa/Index/" class="w3-bar-item w3-button w3-light-grey w3-large"><i class="fa fa-home"> Masalar</i></a>
+        <a href="/Rezerve/Index/" class="w3-bar-item w3-button w3-light-grey w3-large"><i class="fa fa-hand-paper-o"> Rezervasyonlar</i></a>
+        <a href="https://www.google.com/maps/place/Vak%C4%B1fbank+EB%C4%B0S+Genel+M%C3%BCd%C3%BCrl%C3%BC%C4%9F%C3%BC/" class="w3-bar-item w3-button w3-light-grey w3-large" target="_blank"><i class="fa fa-file-pdf-o"> Masa Konum Krokisi</i> </a>
+
+        
+
+    </div>
+
+    <!-- Page Content -->
+    <div style="margin-left:15%">
+
+        <div class="w3-container w3-amber">
+            <img src="~/css/unnamed.png" height="50" width="230" class="align-content-sm-center" />
+        </div>
+
+
+
+        <div class="w3-container">
+            @RenderBody()
+        </div>
+
+    </div>
+    <footer class="page-footer font-weight-lighter  pt-4">
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            <b>İzleme ve Konfigürasyon Sistemleri Yönetimi Teknik Müdürlüğü</b> © @DateTime.Now.Year
+          
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+</body>
+
+
+

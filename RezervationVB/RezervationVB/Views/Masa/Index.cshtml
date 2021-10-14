@@ -1,0 +1,54 @@
+﻿@using RezervationVB.Models
+@model List<masa>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutTümlesik.cshtml";
+}
+<br />
+<h3 class="card-header">Masalar</h3>
+<div class="container row shadow">
+    <div class="col-md-12 mt-5 mb-5">
+        <table>
+            <tr>
+                <td class="btn btn-success">Dolu</td>
+                <td class="btn btn-warning">Boş</td>
+
+            </tr>
+            
+        </table>
+        
+        <table class="table table-striped">
+
+
+            <tr>
+                <th>Masa ID</th>
+                <th>Masa Etiketi</th>
+                <th>Masa Durum</th>
+
+
+            </tr>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td> @x.masaid</td>
+                    <td> @x.masaetiketi</td>
+                    @if (@x.masadurum == true)
+                    {
+                        <td class="btn btn-success">@x.masadurum</td>
+                    }
+
+
+                    @if (@x.masadurum == false)
+                    {
+                        <td class="btn btn-warning">@x.masadurum</td>
+                    }
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+
+

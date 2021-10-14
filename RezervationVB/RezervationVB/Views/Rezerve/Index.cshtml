@@ -1,0 +1,47 @@
+﻿@using RezervationVB.Models
+@model List<rezerve>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutTümlesik.cshtml";
+}
+<br />
+<h3 class="card-header ">Rezervasyonlarım</h3>
+<div style="margin-bottom:15px; margin-top:15px;">
+    <input type="text" class="form-control" placeholder="Rezervasyon Ara" />
+</div>
+<a href="/Rezerve/RezervasyonEkle/" class="btn btn-success">Yeni Rezervasyon Ekle</a>
+<div class="container row shadow">
+    <div class="col-md-12 mt-5 mb-5">
+        <table class="table table-striped">
+            <tr>
+                <th>Rezervasyon Id</th>
+                <th>Personel Sicil</th>
+                <th>Personel Adi</th>
+                <th>Masa Etiketi</th>
+                <th>Rezervasyon Başlangıç Tarihi</th>
+                <th>Rezervasyon Bitiş Tarihi</th>
+                <th>Rezerve Sil</th>
+                <th>Rezerve Güncelle</th>
+                <th>Rezerve Detay</th>
+            </tr>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.rezerveid</td>
+                    <td>@x.sicilno</td>
+                    <td>@x.kullaniciadi</td>
+                    <td class="btn btn-warning ">@x.masaid</td>
+                    <td>@x.rezervebaslangic</td>
+                    <td>@x.rezervebitis</td>
+                    <td>@Html.ActionLink("Rezerve Sil", "RezerveSil", new { id = x.rezerveid }, new { @class = "btn btn-outline-danger", onclick = "return confirm('Rezervasyonuz silinecek, emin misiniz?')" }) </td>
+                    <td><a href="/Rezerve/RezerveGetir/@x.rezerveid" class="btn btn-outline-success">Rezerve Güncelle</a></td>
+                    <td></td>
+
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+<br />
+
+

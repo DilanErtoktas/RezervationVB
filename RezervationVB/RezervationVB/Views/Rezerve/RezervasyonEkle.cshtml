@@ -1,0 +1,77 @@
+﻿@model RezervationVB.Models.rezerve
+
+@{
+    ViewData["Title"] = "RezervasyonEkle";
+    Layout = "~/Views/Shared/_LayoutTümlesik.cshtml";
+}
+<br />
+<h3 class="card-header">Rezervasyon Talebi</h3>
+
+<div class="container row shadow">
+    <div class="col-md-12 mt-5 mb-5">
+
+        <form class="form-group" method="post">
+
+            <div style="margin-top:15px">
+                @*<label class="font-weight-bold">Rezervasyon Id</label>*@
+                <input type="hidden" @Html.TextBoxFor(x => x.rezerveid, new { @class = "form-control" })
+                        
+
+            </div>
+
+            <div style="margin-top:15px">
+                <label class="font-weight-bold">Personel Sicil</label>
+                @Html.TextBoxFor(x => x.sicilno, new { @class = "form-control" })
+
+
+            </div>
+
+            <div style="margin-top:15px">
+                <label class="font-weight-bold">Personel Adı</label>
+                @Html.TextBoxFor(x => x.kullaniciadi, new { @class = "form-control" })
+
+
+            </div>
+
+            <div style="margin-top:15px">
+                @*<label class="font-weight-bold">Rezerve Başlangıç Tarihi </label>*@
+                <label class="font-weight-bold">Rezerve Başlangıç</label> <input type="text" class="form-control" name="baslangic" value="@DateTime.Now.ToShortDateString()" @Html.TextBoxFor(x => x.rezervebaslangic, new { @class = "form-control" })
+
+
+
+            </div>
+
+            <div style="margin-top:15px">
+                @*<label class="font-weight-bold">Rezerve Bitiş Tarihi</label>*@
+                <label class="font-weight-bold">Rezerve Bitiş</label><input type="text" class="form-control" name="bitis" value="@DateTime.Now.AddDays(7).ToShortDateString()" @Html.TextBoxFor(x => x.rezervebitis, new { @class = "form-control" })
+
+
+            </div>
+
+            <div style="margin-top:15px">
+                <label class="font-weight-bold">Masa Etiketi</label>
+
+                @*  @Html.TextBoxFor(x => x.masaid, new { @class = "form-control" })*@
+                @Html.DropDownListFor(x => x.masaid, (List<SelectListItem>)ViewBag.dgr1,"Masa Etiketi Seçiniz", new { @class = "form-control" } )
+            </div>
+
+
+
+
+            <div style="margin-top:15px">
+                <a href="/Rezerve/Index/" class="btn btn-primary">Vazgeç&nbsp;</a>
+                <button type="submit" class="btn btn-success">Ekle</button>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<input type="hidden" name="Durum" value="True" />
+<div class="container row shadow">
+    <div class="col-md-12 mt-5 mb-5">
+        <button type="button" class="btn btn-outline-danger">Krokiyi görmek için tıklayınız..</button>
+    </div>
+</div>
+
